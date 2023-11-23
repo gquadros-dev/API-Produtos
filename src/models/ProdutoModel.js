@@ -57,8 +57,7 @@ class Produto {
       grupo: this.body.grupo,
       cnpj: this.body.cnpj,
       ativo: this.body.ativo,
-      sincronizado: this.body.sincronizado,
-      token: this.body.token
+      sincronizado: this.body.sincronizado
     }
   }
 
@@ -67,13 +66,16 @@ class Produto {
     return await ProdutoModel.find({ cnpj: sentCNPJ});
   }
 
-  static searchAll = async () => {
-    return await ProdutoModel.find();
-  }
+  static searchAll = async () => await ProdutoModel.find();
 
   static deleteAll = async () => {
     await ProdutoModel.deleteMany({ sincronizado: true });
     return { success: 'Os produtos já exportados foram excluídos!' };
+  }
+
+  static deleteId = async (sentId) => {
+    await ProdutoModel.findOneAndDelete({ _id: sentId });
+    return { success: 'Produto excluído' }
   }
 }
 

@@ -24,6 +24,14 @@ const deleteAll = async (req, res) => {
   }
 }
 
+const deleteById = async (req, res) => {
+  try {
+    res.status(200).json(await Produto.deleteId(req.params.id));
+  } catch (err) {
+    return res.status(400).json({ error: 'Bad request' });
+  }
+}
+
 const store = async (req, res) => {
   try {
     const produto = new Produto(req.body);
@@ -39,4 +47,4 @@ const store = async (req, res) => {
   }
 }
 
-export { store, deleteAll, searchByCNPJ, searchAll };
+export { store, deleteAll, deleteById, searchByCNPJ, searchAll };

@@ -10,8 +10,6 @@ import MongoStore from 'connect-mongo';
 import express, { urlencoded, json } from 'express';
 
 import produtoRoutes from './src/routes/produtoRoutes';
-import empresaRoutes from './src/routes/empresaRoutes';
-import tokenRoutes from './src/routes/tokenRoutes';
 
 class App {
   constructor() {
@@ -42,9 +40,7 @@ class App {
   }
 
   routes() {
-    this.app.use('/produto/', produtoRoutes);
-    this.app.use('/token/', tokenRoutes);
-    this.app.use('/empresa/', empresaRoutes);
+    this.app.use('/produtos/', produtoRoutes);
   }
 
   connectMongoose() {
