@@ -1,8 +1,8 @@
-import Produto from '../models/ProdutoModel';
+import Empresa from '../models/EmpresaModel';
 
 const searchAll = async (req, res) => {
   try {
-    return res.status(200).json( await Produto.searchAll());
+    return res.status(200).json( await Empresa.searchAll());
   } catch (err) {
     return res.status(400).json({error: 'Bad request'});
   }
@@ -10,15 +10,15 @@ const searchAll = async (req, res) => {
 
 const searchByCNPJ = async (req, res) => {
   try {
-    return res.status(200).json( await Produto.searchByCNPJ(req.params.cnpj));
+    return res.status(200).json( await Empresa.searchByCNPJ(req.params.cnpj));
   } catch (err) {
     return res.status(400).json({error: 'Bad request'});
   }
 }
 
-const deleteAll = async (req, res) => {
+const deleteByCNPJ = async (req, res) => {
   try {
-    return res.status(200).json(await Produto.deleteAll());
+    return res.status(200).json(await Empresa.deleteByCNPJ(req.params.cnpj ));
   } catch (err) {
     return res.status(400).json({error: 'Bad Request'});
   }
@@ -26,17 +26,17 @@ const deleteAll = async (req, res) => {
 
 const store = async (req, res) => {
   try {
-    const produto = new Produto(req.body);
-    await produto.store();
+    const empresa = new Empresa(req.body);
+    await empresa.store();
 
-    if(produto.errors.length > 0) {
+    if(empresa.errors.length > 0) {
       return res.status(400).json(errors);
     }
 
-    res.json(produto.body);
+    res.json(empresa.body);
   } catch (err) {
     return res.status(400).json(err.errors);
   }
 }
 
-export { store, deleteAll, searchByCNPJ, searchAll };
+export { store, deleteByCNPJ, searchByCNPJ, searchAll };

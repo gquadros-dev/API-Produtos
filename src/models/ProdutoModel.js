@@ -16,64 +16,65 @@ const ProdutoSchema = new mongoose.Schema({
 
 const ProdutoModel = mongoose.model('Produto', ProdutoSchema);
 
-function Produto(body)  {
-  this.body = body;
-  this.errors = [];
-  this.contato = null;
-}
-
-Produto.prototype.register = async function(){
-  await this.valida();
-  this.contato = await ProdutoModel.create(this.body);
-}
-
-Produto.prototype.valida = async function(){
-  this.cleanUp();
-  if(!this.body.codigo) this.errors.push('"codigo" é um campo obrigatório');
-  if(!this.body.nome) this.errors.push('"nome" é um campo obrigatório');
-  if(!this.body.cst) this.errors.push('"cst" é um campo obrigatório');
-  if(!this.body.ncm) this.errors.push('"ncm" é um campo obrigatório');
-  if(!this.body.valorVenda) this.errors.push('"valorVenda" é um campo obrigatório');
-  if(!this.body.cnpj) this.errors.push('"cnpj" é um campo obrigatório');
-  if(!this.body.ativo) this.errors.push('"ativo" é um campo obrigatório');
-  if(!this.body.sincronizado) this.errors.push('"sincronizado" é um campo obrigatório');
-}
-
-Produto.prototype.cleanUp = function(){
-  for(const key in this.body){
-      if(typeof this.body[key] !== 'string'){
-          this.body[key] = '';
-      }
+class Produto {
+  constructor(body){
+    this.body = body;
+    this.errors = [];
   }
 
-  this.body = {
-    codigo: this.body.codigo,
-    nome: this.body.nome,
-    cst: this.body.cst,
-    origem: this.body.origem,
-    ncm: this.body.ncm,
-    valorVenda: this.body.valorVenda,
-    medida: this.body.medida,
-    grupo: this.body.grupo,
-    cnpj: this.body.cnpj,
-    ativo: this.body.ativo,
-    sincronizado: this.body.sincronizado
+  store = async () => {
+    await this.valida();
+    await ProdutoModel.create(this.body);
   }
-}
 
-Produto.buscaPorCNPJ = async function(cnpjEnviado){
-  if(typeof cnpjEnviado !== 'string') return;
-  return await ProdutoModel.find({ cnpj: cnpjEnviado});
-}
+  valida = async () => {
+    this.cleanUp();
+    if(!this.body.codigo) this.errors.push('"codigo" é um campo obrigatório');
+    if(!this.body.nome) this.errors.push('"nome" é um campo obrigatório');
+    if(!this.body.cst) this.errors.push('"cst" é um campo obrigatório');
+    if(!this.body.ncm) this.errors.push('"ncm" é um campo obrigatório');
+    if(!this.body.valorVenda) this.errors.push('"valorVenda" é um campo obrigatório');
+    if(!this.body.cnpj) this.errors.push('"cnpj" é um campo obrigatório');
+    if(!this.body.ativo) this.errors.push('"ativo" é um campo obrigatório');
+    if(!this.body.sincronizado) this.errors.push('"sincronizado" é um campo obrigatório');
+  }
 
-Produto.buscaProdutos = async function() {
-  return await ProdutoModel.find();
-}
+  cleanUp = () => {
+    for(const key in this.body){
+        if(typeof this.body[key] !== 'string'){
+            this.body[key] = '';
+        }
+    }
 
-Produto.delete = async function(cnpjEnviado) {
-  if(typeof cnpjEnviado !== 'string') return;
-  await ProdutoModel.deleteMany({sincronizado: true, cnpj: cnpjEnviado});
-  return {sucesso:'Os produtos já exportados foram excluídos!'};
+    this.body = {
+      codigo: this.body.codigo,
+      nome: this.body.nome,
+      cst: this.body.cst,
+      origem: this.body.origem,
+      ncm: this.body.ncm,
+      valorVenda: this.body.valorVenda,
+      medida: this.body.medida,
+      grupo: this.body.grupo,
+      cnpj: this.body.cnpj,
+      ativo: this.body.ativo,
+      sincronizado: this.body.sincronizado,
+      token: this.body.token
+    }
+  }
+
+  static searchByCNPJ = async (sentCNPJ) => {
+    if(typeof sentCNPJ !== 'string') return;
+    return await ProdutoModel.find({ cnpj: sentCNPJ});
+  }
+
+  static searchAll = async () => {
+    return await ProdutoModel.find();
+  }
+
+  static deleteAll = async () => {
+    await ProdutoModel.deleteMany({ sincronizado: true });
+    return { success: 'Os produtos já exportados foram excluídos!' };
+  }
 }
 
 export default Produto;
