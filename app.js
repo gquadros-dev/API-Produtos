@@ -2,12 +2,11 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-import express from 'express';
+import express, { urlencoded, json } from 'express';
 import mongoose from 'mongoose';
 import flash from 'connect-flash';
 import session from 'express-session'
 import MongoStore from 'connect-mongo';
-import express, { urlencoded, json } from 'express';
 
 import produtoRoutes from './src/routes/produtoRoutes';
 
