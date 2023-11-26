@@ -9,6 +9,7 @@ import session from 'express-session'
 import MongoStore from 'connect-mongo';
 
 import produtoRoutes from './src/routes/produtoRoutes';
+import licencaRoutes from './src/routes/licencaRoutes';
 
 class App {
   constructor() {
@@ -40,6 +41,7 @@ class App {
 
   routes() {
     this.app.use('/produtos/', produtoRoutes);
+    this.app.use('/licenca/', licencaRoutes);
   }
 
   connectMongoose() {
