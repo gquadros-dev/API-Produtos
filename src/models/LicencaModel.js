@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { getDb } from '../db/connection';
 
 const LicencaSchema = new mongoose.Schema({
   razao: { type: String, required: true },
@@ -14,12 +15,12 @@ class Licenca {
     this.errors = [];
   }
 
-  store = async () => {
+  store = () => {
     this.valida();
 
     if (this.errors.length > 0 ) return;
 
-    await LicencaModel.create(this.body);
+    getDb().db().collection('licencas').insertOne(this.body);
   }
 
   valida = () => {
@@ -43,9 +44,14 @@ class Licenca {
     }
   }
 
+
   static searchByCNPJ = async (sentCNPJ) => {
     if(typeof sentCNPJ !== 'string') return;
-    return await LicencaModel.find({ cnpj: sentCNPJ});
+    return await getDb().db().collection('licencas').find({ cnpj: sentCNPJ}).toArray();
+  }
+
+  static searchAll = async () => {
+    return await getDb().db().collection('licencas').find().toArray();
   }
 }
 
