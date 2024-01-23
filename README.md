@@ -6,65 +6,55 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
 
-<img src="imagem.png" alt="Exemplo imagem">
-
-> Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
+> Esse projeto foi desenvolvido em torno de uma necessidade no trabalho, mas não foi utilizado e descontinuado a ideia. Decidi guardar aqui para um futuro uso.
 
 ### Ajustes e melhorias
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- [x] Tarefa 1
-- [x] Tarefa 2
-- [x] Tarefa 3
-- [ ] Tarefa 4
-- [ ] Tarefa 5
+- [x] Implementar o cadastro de produto;
+- [x] Implementar o cadastro de licenças;
+- [ ] Implementar autenticação via JWT;
+- [ ] Implementar autenticação via OAuth2;
 
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-- Você instalou a versão mais recente de `<linguagem / dependência / requeridos>`
-- Você tem uma máquina `<Windows / Linux / Mac>`. Indique qual sistema operacional é compatível / não compatível.
-- Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
+- Você instalou a versão mais recente do `NodeJS`
+- Você tem uma máquina `Windows ou Linux`.
 
-## 🚀 Instalando <nome_do_projeto>
+## 🚀 Instalando a API-Produtos
 
-Para instalar o <nome_do_projeto>, siga estas etapas:
+Para instalar a API-Produtos, siga estas etapas:
 
-Linux e macOS:
-
-```
-<comando_de_instalação>
-```
-
-Windows:
+Linux e windows:
 
 ```
-<comando_de_instalação>
+Instale o NodeJS em sua última versão;
+Baixe os arquivos do projeto em sua máquina;
+Acesse o diretório pelo terminal e use o comando "npm install";
+Depois disso é só usar o comando "npm start" e o projeto estará funcionando;
 ```
 
-## ☕ Usando <nome_do_projeto>
+## ☕ Usando API-Rest
 
-Para usar <nome_do_projeto>, siga estas etapas:
+Para usar a API-Produtos, siga estas etapas:
 
 ```
-<exemplo_de_uso>
+Para usar a API-Produtos você deve somente ter o projeto rodando e usar os seus Métodos Post, Get, Put e Delete!
+Ela ainda não possui autenticação via JWT ou OAuth2 então você só precisa rodar os comandos, sem qualquer login ou senha.
 ```
 
-Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Fornece uma referência de opções para pontos de bônus!
+## 📫 Contribuindo para API-Produtos
 
-## 📫 Contribuindo para <nome_do_projeto>
-
-Para contribuir com <nome_do_projeto>, siga estas etapas:
+Para contribuir com API-Produtos, siga estas etapas:
 
 1. Bifurque este repositório.
 2. Crie um branch: `git checkout -b <nome_branch>`.
 3. Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
-4. Envie para o branch original: `git push origin <nome_do_projeto> / <local>`
+4. Envie para o branch original: `git push origin <nome_do_projeto>`
 5. Crie a solicitação de pull.
-
-Como alternativa, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
 ## 🤝 Colaboradores
 
@@ -74,25 +64,9 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="#" title="defina o titulo do link">
-        <img src="https://avatars3.githubusercontent.com/u/31936044" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://avatars.githubusercontent.com/gquadros-dev" width="100px;" alt="Foto do GQuadros-dev"/><br>
         <sub>
-          <b>Iuri Silva</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="#" title="defina o titulo do link">
-        <img src="https://s2.glbimg.com/FUcw2usZfSTL6yCCGj3L3v3SpJ8=/smart/e.glbimg.com/og/ed/f/original/2019/04/25/zuckerberg_podcast.jpg" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
-        <sub>
-          <b>Mark Zuckerberg</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="#" title="defina o titulo do link">
-        <img src="https://miro.medium.com/max/360/0*1SkS3mSorArvY9kS.jpg" width="100px;" alt="Foto do Steve Jobs"/><br>
-        <sub>
-          <b>Steve Jobs</b>
+          <b>Gabriel Quadros</b>
         </sub>
       </a>
     </td>
@@ -101,7 +75,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 ## 😄 Seja um dos contribuidores
 
-Quer fazer parte desse projeto? Clique [AQUI](CONTRIBUTING.md) e leia como contribuir.
+Quer fazer parte desse projeto? Clique [AQUI](https://) e entre em contato comigo!
 
 ## 📝 Licença
 
