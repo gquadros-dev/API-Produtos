@@ -37,7 +37,7 @@ Acesse o diretório pelo terminal e use o comando "npm install";
 Depois disso é só usar o comando "npm start" e o projeto estará funcionando;
 ```
 
-## ☕ Usando API-Rest
+## ☕ Usando API-Produtos
 
 Para usar a API-Produtos, siga estas etapas:
 
