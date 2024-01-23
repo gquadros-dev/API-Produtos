@@ -77,6 +77,3 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 Quer fazer parte desse projeto? Clique [AQUI](https://wa.me/5549999415495) e entre em contato comigo!
 
-## 📝 Licença
-
-Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
